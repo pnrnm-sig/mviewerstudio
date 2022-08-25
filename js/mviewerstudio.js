@@ -235,12 +235,13 @@ var newConfiguration = function () {
     ["opt-title", "opt-logo", "opt-help", "theme-edit-icon", "theme-edit-title"].forEach(function (param, id) {
         $("#"+param).val("");
     });
+    /* !!! Changement fait après installation : ajout d'une option Plein écran !!! */
     ["opt-exportpng", "opt-measuretools", "theme-edit-collapsed", "opt-mini", "opt-showhelp", "opt-coordinates",
-        "opt-togglealllayersfromtheme"].forEach(function (param, id) {
+        "opt-togglealllayersfromtheme", "opt-fullscreen"].forEach(function (param, id) {
         $("#"+param).prop('checked', false);
     });
 
-    $("#opt-style").val("css/themes/default.css").trigger("change");
+    $("#opt-style").val("css/themes/pnrnm.css").trigger("change");
     $("#panel-theme").hide();
 
     map.getView().setCenter(_conf.map.center);
@@ -511,8 +512,9 @@ var saveApplicationParameters = function (option) {
         'showhelp="'+($('#opt-showhelp').prop('checked')=== true)+'"',
         'coordinates="'+($('#opt-coordinates').prop('checked')=== true)+'"',
         'measuretools="'+($('#opt-measuretools').prop('checked')=== true)+'"',
-        'togglealllayersfromtheme="'+($('#opt-togglealllayersfromtheme').prop('checked')=== true)+'"'];
-
+        'togglealllayersfromtheme="'+($('#opt-togglealllayersfromtheme').prop('checked')=== true)+'"',
+        /* !!! Changement fait après installation : ajout d'une option Plein écran !!! */
+        'fullscreen="'+($('#opt-fullscreen').prop('checked')=== true)+'"'];
     config.title = $("#opt-title").val();
 
     if(config.title == ''){
@@ -565,6 +567,12 @@ var saveApplicationParameters = function (option) {
     var center = map.getView().getCenter().join(",");
     var zoom = map.getView().getZoom();
     var mapoptions = padding(0) + '<mapoptions maxzoom="20" projection="EPSG:3857" center="'+center+'" zoom="'+zoom+'" '+maxextentStr+'/>';
+    /* !!! Changement fait après installation : ajout d'une option Plein écran !!! */
+    // Fullscreen
+    var fullscreen = '';
+    if ( $("#opt-fullscreen").prop("checked") ) {
+        fullscreen = padding(0) + '<extensions><extension type="component" id="fullscreen" path="demo/addons"/></extensions>';
+    }
 
     var baseLayersMode = $("#frm-bl-mode").val();
     var visibleBaselayer = $("#frm-bl-visible").val();
@@ -608,6 +616,8 @@ var saveApplicationParameters = function (option) {
         '<metadata>\r\n'+mv.createDublinCore(config)+'\r\n</metadata>\r\n',
         application,
         mapoptions,
+        /* !!! Changement fait après installation : ajout d'une option Plein écran !!! */
+        fullscreen,
         savedProxy,
         olscompletion,
         elasticsearch,
@@ -664,6 +674,7 @@ var saveApplicationParameters = function (option) {
                             // Build a classic URL for the map
                             url = _conf.mviewer_instance + '?config=' + _conf.conf_path_from_mviewer + data.filepath;
                         }
+                        url = _conf.mviewer_instance + '?config=' + _conf.conf_path_from_mviewer + data.filepath;
                         window.open(url,'mvs_vizualize');
                     }
                 }

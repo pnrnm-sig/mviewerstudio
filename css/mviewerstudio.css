@@ -42,7 +42,7 @@ body {
     background-color: #E64B3B;
 }
 .blue {
-    background-color: #F6F7F8;
+    background-color: #87b8e9;
 }
 .default {
     background-color: #34495D;
@@ -80,6 +80,12 @@ body {
 .wet_asphalt {
     background-color: #34495D;
 }
+
+/* !!! Changement fait après installation : ajout d'un style !!! */
+.pnrnm {
+    background-color: #00936F;
+}
+
 
 .row.fld.selected {
     background-color: #9E9E9E;

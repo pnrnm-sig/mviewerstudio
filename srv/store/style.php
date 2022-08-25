@@ -2,7 +2,9 @@
 //include 'who.php';
 require_once('who.php');
 $geob_user = getUser();
-$_conf = json_decode(file_get_contents("../../../apps/config.json"), true)["app_conf"];
+// !!! Changement fait après installation : chemin relatif en chemin absolu !!!
+// $_conf = json_decode(file_get_contents("../../../apps/config.json"), true)["app_conf"];
+$_conf = json_decode(file_get_contents("/home/studio/mviewerstudio/apps/config.json"), true)["app_conf"];
 $xml_0 = file_get_contents('php://input');
 $xml = str_replace('anonymous', $geob_user, $xml_0);
 $fichier = hash('sha256', $xml) . '.xml';

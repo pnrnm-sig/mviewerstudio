@@ -99,7 +99,10 @@
                                     <div class="col-md-8">
                                         <select id="opt-style" name="style" class="form-control default"
                                                 onchange="updateTheme(this);">
-                                            <option class="alizarin" value="css/themes/alizarin.css">alizarin</option>
+                                            <!-- !!! Changement fait après installation : ajout d'un style !!! -->
+                                            <option class="pnrnm" value="css/themes/pnrnm.css">pnrnm</option>
+                                            <!-- !!! Changement fait après installation : mise en commentaire des styles par défaut !!! -->
+                                            <!-- <option class="alizarin" value="css/themes/alizarin.css">alizarin</option>
                                             <option class="blue" value="css/themes/blue.css">blue</option>
                                             <option class="default" selected value="css/themes/default.css">default</option>
                                             <option class="nephritis" value="css/themes/nephritis.css">nephritis</option>
@@ -112,7 +115,7 @@
                                             <option class="chambray" value="css/themes/chambray.css">chambray</option>
                                             <option class="green_sea" value="css/themes/green_sea.css">green_sea</option>
                                             <option class="pink" value="css/themes/pink.css">pink</option>
-                                            <option class="wet_asphalt" value="css/themes/wet_asphalt.css">wet_asphalt</option>
+                                            <option class="wet_asphalt" value="css/themes/wet_asphalt.css">wet_asphalt</option> -->
                                         </select>
                                     </div>
                                 </div>
@@ -120,6 +123,13 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="checkboxes" i18n="tabs.app.options">Options</label>
                                     <div class="col-md-8">
+                                        <!-- !!! Changement fait après installation : ajout d'une option Plein écran !!! -->
+                                        <div class="checkbox">
+                                            <label for="opt-fullscreen">
+                                                <input type="checkbox" name="checkboxes" id="opt-fullscreen">
+                                                <span>Plein écran</span>
+                                            </label>
+                                        </div>
                                         <div class="checkbox">
                                             <label for="opt-measuretools">
                                                 <input type="checkbox" name="checkboxes" id="opt-measuretools">
@@ -546,8 +556,9 @@
                             <div role="tabpanel" class="tab-pane active" id="layer_conf1">
                                 <form>
                                     <div class="form-group">
-                                        <label for="frm-layer-title" i18n="modal.layer.name">Nom</label>
-                                        <input type="text" class="form-control" id="frm-layer-title"
+                                        <!-- !!! Changement fait après installation : correctif bug for="frm-layer-title" remplacé par for="frm-name" !!! -->
+                                        <label for="frm-name" i18n="modal.layer.name">Nom</label>
+                                        <input type="text" class="form-control" id="frm-name"
                                                placeholder="nom de la couche" i18n="modal.layer.name.ph">
                                     </div>
                                     <!--<div class="form-group">
