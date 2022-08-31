@@ -147,40 +147,9 @@
             }
         },
         "data_providers": {
-            "csw": [{
-                    "title": "Catalogue GéoBretagne",
-                    "url": "https://geobretagne.fr/geonetwork/srv/fre/csw",
-                    "baseref": "https://geobretagne.fr/geonetwork/srv/eng/catalog.search?node=srv#/metadata/"
-                },
-                {
-                    "title": "Catalogue Région Bretagne",
-                    "url": "https://kartenn.region-bretagne.fr/geonetwork/srv/fre/csw",
-                    "baseref": "https://kartenn.region-bretagne.fr/geonetwork/srv/fre/catalog.search#/metadata/"
-                },
-                {
-                    "title": "Catalogue de la Région Grand Est",
-                    "url": "https://www.geograndest.fr/geonetwork/srv/fre/csw",
-                    "baseref": "https://www.geograndest.fr/geonetwork/srv/eng/catalog.search?node=srv#/metadata/"
-                },
-                {
-                    "title": "Catalogue de la Région Pays de la Loire",
-                    "url": "https://www.geopal.org/geonetwork/srv/fre/csw",
-                    "baseref": "https://www.geopal.org/geonetwork/srv/eng/catalog.search?node=srv#/metadata/"
-                },
-                {
-                    "title": "Catalogue du Parc Normandie Maine",
-                    "url": "http://localhost:8080/geoserver/csw",
-                    "baseref": "https://www.geopal.org/geonetwork/srv/eng/catalog.search?node=srv#/metadata/"
-                }
-
-            ],
             "wms": [{
                 "title": "Serveur OWS du Parc Normandie Maine",
                 "url": "http://localhost:8080/geoserver/pnrnm/ows"
-                },
-                {
-                    "title": "Serveur WFS du Parc Normandie Maine",
-                    "url": "http://localhost:8080/geoserver/pnrnm/wFs"                   
                 },
                 {
                     "title": "Serveur WMS du Parc Normandie Maine",
