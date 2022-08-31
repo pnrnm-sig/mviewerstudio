@@ -27,4 +27,4 @@ srv/python/mviewerstudio_backend/static
 .python-version
 
 # Ignore config.json
-config.json
+**/config.json
