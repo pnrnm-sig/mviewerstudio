@@ -28,3 +28,7 @@ srv/python/mviewerstudio_backend/static
 
 # Ignore config.json
 **/config.json
+
+# Ignore all files in srv
+/srv/**.php
+/srv/store
