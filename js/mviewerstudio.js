@@ -231,6 +231,7 @@ var map2 = new ol.Map({
 });
 var config;
 
+/* !!! Changement fait après installation : ajout de deux options Plein écran et Ecraser le fichier XML chargé !!! */
 var newConfiguration = function () {
     ["opt-title", "opt-logo", "opt-help", "theme-edit-icon", "theme-edit-title"].forEach(function (param, id) {
         $("#"+param).val("");
@@ -241,9 +242,6 @@ var newConfiguration = function () {
     });
 
     $("#opt-style").val("css/themes/pnrnm.css").trigger("change");
-
-    
-
     $("#panel-theme").hide();
 
     map.getView().setCenter(_conf.map.center);
@@ -515,6 +513,7 @@ var saveApplicationParameters = function (option) {
         'coordinates="'+($('#opt-coordinates').prop('checked')=== true)+'"',
         'measuretools="'+($('#opt-measuretools').prop('checked')=== true)+'"',
         'togglealllayersfromtheme="'+($('#opt-togglealllayersfromtheme').prop('checked')=== true)+'"',
+        /* !!! Changement fait après installation : ajout de deux options Plein écran et Ecraser le fichier XML chargé !!! */
         'overwrite="'+($('#opt-filename').prop('checked')=== true)+'"',
         'fullscreen="'+($('#opt-fullscreen').prop('checked')=== true)+'"'];
     config.title = $("#opt-title").val();
@@ -570,13 +569,14 @@ var saveApplicationParameters = function (option) {
     var zoom = map.getView().getZoom();
     var mapoptions = padding(0) + '<mapoptions maxzoom="20" projection="EPSG:3857" center="'+center+'" zoom="'+zoom+'" '+maxextentStr+'/>';
 
-    // Fullscreen
+
+    /* !!! Changement fait après installation : ajout d'une option Plein écran !!! */
     var fullscreen = '';
     if ( $("#opt-fullscreen").prop("checked") ) {
         fullscreen = padding(0) + '<extensions><extension type="component" id="fullscreen" path="demo/addons"/></extensions>';
     }
 
-    // Filename
+    /* !!! Changement fait après installation : ajout d'une option Ecraser le fichier XML chargé !!! */
     if ( $("#opt-filename").prop("checked") ) {
         filename = padding(0) + '<filename filename="' + filename + '"></filename>';
     }
@@ -619,6 +619,7 @@ var saveApplicationParameters = function (option) {
     });
     themes.push(padding(0)+'</themes>');
 
+/* !!! Changement fait après installation : ajout de deux options Plein écran et Ecraser le fichier XML chargé !!! */
     var conf = ['<?xml version="1.0" encoding="UTF-8"?>\r\n<config mviewerstudioversion="'+VERSION+'">\r\n',
         '<metadata>\r\n'+mv.createDublinCore(config)+'\r\n</metadata>\r\n',
         application,
@@ -730,8 +731,8 @@ var extractFeatures = function (fld, option) {
     }
 };
 
+/* !!! Changement fait après installation : ajout d'une option Ecraser le fichier XML chargé !!! */
 var filename = '';
-
 var loadApplicationParametersFromFile = function () {
     var file = document.getElementById("filebutton").files[0];
     if (file) {
