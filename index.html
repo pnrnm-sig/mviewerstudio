@@ -175,8 +175,8 @@
                                         </div>
                                         <div class="checkbox">
                                             <label for="opt-maxextent">
-                                                <input type="checkbox" name="checkboxes" id="opt-maxextent">
-                                                <span i18n="tabs.app.opt_maxextent">Interdire la navigation hors de l'étendue ci contre</span>
+                                                <input type="checkbox" name="checkboxes" id="opt-maxextent" checked>
+                                                <span i18n="tabs.app.opt_maxextent">Interdire la navigation hors de l'étendue ci-contre</span>
                                             </label>
                                         </div>
                                     </div>
@@ -247,6 +247,8 @@
                                     <input type="text" id="theme-edit-title" class="form-control" tabs.search.elastic_search.disabled="Titre"
                                            aria-describedby="basic-addon1">
                                 </div>
+                                <!-- !!! Changement fait après installation : message lorsqu'une couche est cachée dans le panneau de couches !!! -->
+                                <div id="theme-hidden"></div>
                                 <div class="checkbox">
                                     <label for="theme-edit-collapsed">
                                         <input type="checkbox" name="checkboxes" id="theme-edit-collapsed" value="0">
@@ -631,6 +633,21 @@
                                                 <div class="checkbox">
                                                     <label>
                                                         <input id="frm-queryable" type="checkbox"><span i18n="modal.layer.queryable">interrogeable</span>
+                                                    </label>
+                                                    <!-- !!! Changement fait après installation !!! -->
+                                                    <label>
+                                                        <input id="frm-exclusive" type="checkbox"><span i18n="modal.layer.exclusive">exclusive</span>
+                                                    </label>
+                                                    <!-- !!! Changement fait après installation !!! -->
+                                                    <label>
+                                                        <input id="frm-showintoc" type="checkbox"><span i18n="modal.layer.showintoc">showintoc</span>
+                                                    </label>
+                                                    <!-- !!! Changement fait après installation !!! -->
+                                                    <label>
+                                                        <input id="frm-tooltip" type="checkbox"><span i18n="modal.layer.tooltip">tooltip</span>
+                                                    </label>
+                                                    <label>
+                                                        <input id="frm-toplayer" type="checkbox"><span i18n="modal.layer.toplayer">toplayer</span>
                                                     </label>
                                                 </div>
                                             </div>

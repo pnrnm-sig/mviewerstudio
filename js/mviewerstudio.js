@@ -434,6 +434,16 @@ var editTheme = function (item) {
     $(".layers-list-item").remove();
     //Show layerslm
     loadLayers(themeid);
+
+    // !!! Changement fait après installation : message lorsqu'une couche est cachée dans le panneau de couches !!!
+    var el = document.getElementById('theme-hidden');
+    var content;
+    if  (themeid.includes("hideme")) {
+        content =$("#theme-hidden").html("Ce thème est caché dans le panneau de couche. Pour changer cela, ouvrez le fichier XML dans un éditeur de texte et changez l'ID du thème.");
+    } else {
+        content =$("#theme-hidden").html("")
+    }
+    el.append(content[0]);
 };
 
 var saveTheme = function () {
@@ -474,10 +484,25 @@ var deleteLayer = function (layerid) {
 };
 
 var createId = function (obj) {
+//     if (document.getElementById("theme-edit-hide").checked) {
+//         function makeid(length) {
+//             var result           = '';
+//             var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+//             var charactersLength = characters.length;
+//             for ( var i = 0; i < length; i++ ) {
+//                 result += characters.charAt(Math.floor(Math.random() * charactersLength));
+//             }
+//             return result;
+//         }
+        
+//         obj = "hideme" + makeid(5);
+//         return obj;
+// } else{
     var d = new Date();
     var df = d.getFullYear() + ("0"+(d.getMonth()+1)).slice(-2)+
         ("0" + d.getDate()).slice(-2) + ("0" + d.getHours()).slice(-2) + ("0" + d.getMinutes()).slice(-2) + ("0" + d.getSeconds()).slice(-2);
     return obj+'-' + df;
+// }
 };
 
 var createBaseLayerDef = function (bsl) {
@@ -619,6 +644,7 @@ var saveApplicationParameters = function (option) {
     });
     themes.push(padding(0)+'</themes>');
 
+
 /* !!! Changement fait après installation : ajout de deux options Plein écran et Ecraser le fichier XML chargé !!! */
     var conf = ['<?xml version="1.0" encoding="UTF-8"?>\r\n<config mviewerstudioversion="'+VERSION+'">\r\n',
         '<metadata>\r\n'+mv.createDublinCore(config)+'\r\n</metadata>\r\n',
@@ -738,7 +764,7 @@ var loadApplicationParametersFromFile = function () {
     if (file) {
         var reader = new FileReader();
         reader.readAsText(file, "UTF-8");
-        filename = reader.fileName = file.name // file came from a input file element. file = el.files[0];
+        filename = reader.fileName = file.name; // file came from a input file element. file = el.files[0];
         
         reader.onload = function (evt) {
             var xml = $.parseXML(evt.target.result);

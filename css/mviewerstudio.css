@@ -86,6 +86,12 @@ body {
     background-color: #00936F;
 }
 
+/* !!! Changement fait après installation : message lorsqu'une couche est cachée dans le panneau de couches !!! */
+#theme-hidden{
+    color:red;
+    font-size: small;   
+    padding:0.1em;
+}
 
 .row.fld.selected {
     background-color: #9E9E9E;
